@@ -1,10 +1,13 @@
 import requests
+import nltk
+
 import logging
 import re
 import json
 import datetime
-from bs4 import BeautifulSoup
 
+
+from bs4 import BeautifulSoup
 from header import Header
 
 
@@ -112,3 +115,4 @@ if __name__ == '__main__':
     │                            │
     └────────────────────────────┘
     """
+    nltk.download('popular')
