@@ -117,9 +117,12 @@ if __name__ == '__main__':
     └────────────────────────────┘
     """
     categories = ['colombia', 'salud', 'economia', 'ciencia', 'tecnologia']
+    local_category_news = []
     for category in categories:
         category_news = get_category_news(category, 5)
-        insert_into_database(category_news)
+        local_category_news.append(category_news)
+        break
+        # insert_into_database(category_news)
 
     """
     ┌────────────────────────────┐
@@ -129,3 +132,30 @@ if __name__ == '__main__':
     └────────────────────────────┘
     """
     nltk.download('popular')
+
+    text = ''
+    for cn in local_category_news:
+        news = cn[1]
+
+        for new in news:
+            text += new.title + ' '
+            text += new.text + ' '
+    
+    text = text.lower()
+    words = nltk.tokenize.sent_tokenize(text, language='spanish')
+
+    frec_dist = nltk.FreqDist(words)
+    common_sentencens = frec_dist.most_common(5)
+
+    c_words = ''
+    for cs in common_sentencens:
+        for w in cs[0].split():
+            c_words += w + ' '
+
+    import matplotlib.pyplot as plt
+    from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+
+    wordcloud = WordCloud(max_font_size=50, max_words=10, background_color='white').generate(c_words)
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis('off')
+    plt.show()
