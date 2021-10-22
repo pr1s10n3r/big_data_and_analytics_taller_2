@@ -83,7 +83,20 @@ def get_category_news(category_name: str, pages: int) -> tuple:
 
 def insert_into_database(category_news: tuple):
     from pymongo import MongoClient
-    client = MongoClient('localhost', 27017)
+    from os import getenv
+    from sys import exit
+
+    password = getenv('MONGO_PASSWORD')
+    if password is None:
+        logging.error('*-----------------------------------------*')
+        logging.error('| MONGO_PASSWORD env variable was not set |')
+        logging.error('*-----------------------------------------*')
+        exit(1)
+    else:
+        import urllib
+        password = urllib.parse.quote_plus(password)
+
+    client = MongoClient(f'mongodb+srv://news_database:{password}@cluster0.efobz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
     db = client.news_database
     news = db.news

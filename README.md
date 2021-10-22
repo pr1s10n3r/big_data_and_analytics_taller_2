@@ -70,3 +70,13 @@ en vez de ser auto-generado por una librería JavaScript. Utilizando una
 expresión regular fue posible extraer este JSON que contenía toda la
 información de las noticias y, luego de `parsear` este JSON, fue posible
 extraer la información de las noticias sin necesidad de entrar a estas.
+
+### Evidencias de Inserción
+
+Visualización de registros desde el gestor de base de datos:
+
+![](./imgs/datos_db.jpg)
+
+Visualización del script insertando datos:
+
+![](./imgs/insercion_script.jpg)

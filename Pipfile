@@ -8,6 +8,8 @@ requests = "*"
 beautifulsoup4 = "*"
 pymongo = "*"
 nltk = "*"
+matplotlib = "*"
+dnspython = "*"
 
 [dev-packages]
 
