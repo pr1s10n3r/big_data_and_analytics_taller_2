@@ -59,10 +59,10 @@ lograr la obtención de información por parte de la página de El Espectador.
 
 Teniendo todo lo anterior en cuenta:
 
--   No hay necesidad de ejecutar código JavaScript. ✅
--   No hay necesidad de ejecutar estilos CSS. ✅
--   No hay necesidad de ejecutar un navegador. ✅
--   Puede correr en cualquier sistema operativo que soporte Python 3. ✅
+- No hay necesidad de ejecutar código JavaScript. ✅
+- No hay necesidad de ejecutar estilos CSS. ✅
+- No hay necesidad de ejecutar un navegador. ✅
+- Puede correr en cualquier sistema operativo que soporte Python 3. ✅
 
 Esto se logra gracias a un análisis realizado en el que se encontró que el
 contenido de las noticias estaba presente en el código fuente de la página
@@ -80,3 +80,9 @@ Visualización de registros desde el gestor de base de datos:
 Visualización del script insertando datos:
 
 ![](./imgs/insercion_script.jpg)
+
+### Evidencia de Análisis
+
+Nube de palabras:
+
+![](./imgs/evidencia_lluvia_palabras.jpg)

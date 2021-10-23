@@ -121,8 +121,7 @@ if __name__ == '__main__':
     for category in categories:
         category_news = get_category_news(category, 5)
         local_category_news.append(category_news)
-        break
-        # insert_into_database(category_news)
+        insert_into_database(category_news)
 
     """
     ┌────────────────────────────┐
@@ -142,20 +141,33 @@ if __name__ == '__main__':
             text += new.text + ' '
     
     text = text.lower()
-    words = nltk.tokenize.sent_tokenize(text, language='spanish')
+    
+    from nltk.tokenize import word_tokenize
+    from nltk.corpus import stopwords
 
-    frec_dist = nltk.FreqDist(words)
-    common_sentencens = frec_dist.most_common(5)
+    stop_words = set(stopwords.words('spanish'))
+    words = word_tokenize(text)
+    # Remueve caracteres especiales
+    words = [word.lower() for word in words if word.isalpha()]
 
-    c_words = ''
-    for cs in common_sentencens:
-        for w in cs[0].split():
-            c_words += w + ' '
+    filtered_words = []
+    special = ['http', 'https', 'b', 'html', 'a', 'i']
+
+    for w in words:
+        if w not in stop_words and w not in special:
+            filtered_words.append(w)
+
+    frec_dist = nltk.FreqDist(filtered_words)
+    common_words = frec_dist.most_common(20)
+
+    cw_str = ''
+    for cw in common_words:
+        cw_str += cw[0] + ' '
 
     import matplotlib.pyplot as plt
-    from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+    from wordcloud import WordCloud
 
-    wordcloud = WordCloud(max_font_size=50, max_words=10, background_color='white').generate(c_words)
+    wordcloud = WordCloud(max_font_size=50, max_words=20, background_color='white').generate(cw_str)
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis('off')
     plt.show()
