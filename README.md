@@ -1,12 +1,12 @@
 # Taller 2
 
-| Estudiante    | Profesor    | Institución           | Materia                                    |
-| ------------- | ----------- | --------------------- | ------------------------------------------ |
-| Álvaro Stagg  | Fabian Peña | Universidad El Bosque | Electiva Profesional: Big Data & Analytics |
+| Estudiante    | Profesor    | Institución           | Materia                                    | Video Explicación                           |
+| ------------- | ----------- | --------------------- | ------------------------------------------ | ------------------------------------------- |
+| Álvaro Stagg  | Fabian Peña | Universidad El Bosque | Electiva Profesional: Big Data & Analytics | https://www.youtube.com/watch?v=Lt7H3Aw2K_E |
 
 ## Explicación
 
-La explicación de este taller puede ser encontrada en [este vídeo de YouTube](https://youtube.com/).
+La explicación de este taller puede ser encontrada en [este vídeo de YouTube](https://www.youtube.com/watch?v=Lt7H3Aw2K_E).
 
 ### ¿Cómo Ejecutar Este Proyecto?
 
